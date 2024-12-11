@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'home_page.dart';
+import 'my_list_title.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,13 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
@@ -33,18 +31,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Column(children: [
-        Text(
-          "TextWidget Test",
-          style: TextStyle(
-              fontSize: 40,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue[200]),
-        ),
-        const Text("test2?")
-      ]),
-    ));
+        body: ListView(children: const [
+      MyListTitle(name: "Marko", number: "42424", paddingSize: 10),
+      MyListTitle(name: "Marko", number: "42424", paddingSize: 10),
+      MyListTitle(name: "Marko", number: "42424", paddingSize: 10),
+    ]));
   }
 }
