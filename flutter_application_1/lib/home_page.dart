@@ -1,36 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'my_list_title.dart';
+import "square.dart";
+import 'circle.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List _users = [
-      'Marko Markovic',
-      'Ana Petrovic',
-      'Petar Petrovic',
-      'Milica Jovanovic',
-      'Nikola Nikolic',
-      'Janko Cvetic'
+    final List _posts = ['post1', 'post2', 'post3', 'post4', 'post5'];
+    final List stories = [
+      'story1',
+      'story2',
+      'story3',
+      'story4',
+      'story5',
     ];
-    final List _numbers = [
-      '060111222',
-      '065123445',
-      '065233444',
-      '069111333',
-      '0763333444',
-      '080333444'
-    ];
-
     return Scaffold(
-        body: ListView.builder(
-            itemCount: _users.length,
-            itemBuilder: (context, index) {
-              return MyListTitle(
-                  name: _users[index],
-                  number: _numbers[index],
-                  paddingSize: 10);
-            }));
+        body: Column(
+      children: [
+        Expanded(
+            child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: stories.length,
+          itemBuilder: (context, index) {
+            return MyCircle(stories: stories[index]);
+          },
+        )),
+        Expanded(
+            flex: 8,
+            child: ListView.builder(
+                itemCount: _posts.length,
+                itemBuilder: (context, index) {
+                  return MySquare(
+                    post: _posts[index],
+                  );
+                }))
+      ],
+    ));
   }
 }

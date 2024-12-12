@@ -30,11 +30,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView(children: const [
-      MyListTitle(name: "Marko", number: "42424", paddingSize: 10),
-      MyListTitle(name: "Marko", number: "42424", paddingSize: 10),
-      MyListTitle(name: "Marko", number: "42424", paddingSize: 10),
-    ]));
+    return const Scaffold();
   }
 }
